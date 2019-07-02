@@ -11,8 +11,8 @@ func main() {
     out, err := cmd.CombinedOutput()
     if err != nil {
         fmt.Println("Cannot find process")
-        os.Exit(1)
+        cmd := exec.Command("systemctl", "restart", "nginx")
+	os.Exit(1)
     }
-    fmt.Printf("Status is: %s", string(out))
-    fmt.Println("Starting Role")
+    fmt.Printf("Nginx is: %s", string(out))
 }
