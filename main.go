@@ -12,7 +12,7 @@ func main() {
     out, err := cmdStatus.CombinedOutput()
     if err != nil {
         fmt.Println("Cannot find process")
-	exec.Command(cmdRestart)
+	cmdRestart.Run()
         os.Exit(1)
     }
     fmt.Printf("Nginx is: %s", string(out))
