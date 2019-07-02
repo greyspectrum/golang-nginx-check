@@ -7,12 +7,13 @@ import (
 )
 
 func main() {
-    cmd := exec.Command("systemctl", "check", "nginx")
-    out, err := cmd.CombinedOutput()
+    cmdStatus := exec.Command("systemctl", "check", "nginx")
+    cmdRestart := exec.Command("systemctl", "restart", "nginx")
+    out, err := cmdStatus.CombinedOutput()
     if err != nil {
         fmt.Println("Cannot find process")
-        cmd := exec.Command("systemctl", "restart", "nginx")
-	os.Exit(1)
+	exec.Command(cmdRestart)
+        os.Exit(1)
     }
     fmt.Printf("Nginx is: %s", string(out))
 }
