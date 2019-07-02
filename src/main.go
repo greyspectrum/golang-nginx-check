@@ -15,3 +15,4 @@ func main() {
     }
     fmt.Printf("Status is: %s", string(out))
     fmt.Println("Starting Role")
+}
